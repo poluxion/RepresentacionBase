@@ -1,2 +1,31 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int NumX = 287;
+        int baseK = 4;
+        string RepBase = ConvertBase(NumX, baseK);
+        Console.WriteLine($"El numero {NumX} en base {baseK} es: {RepBase}");
+    }
+
+    static string ConvertBase(int NumX, int baseK)
+    {
+        string Resultado = "";
+
+        if(NumX == 0)
+        {
+            return "0";
+        }
+
+        while(NumX > 0)
+        {
+            int Residuo = NumX % baseK;
+            Resultado = Residuo + Resultado;
+            NumX = NumX / baseK;
+        }
+
+        return Resultado;
+    }
+}
